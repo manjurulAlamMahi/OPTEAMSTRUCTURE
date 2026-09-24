@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations Team Structure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <div>
+      <h1>Operations Team Structure</h1>
+      <p class="hint">Click any box to see what that role does.</p>
+    </div>
+    <ul class="legend">
+      <li><span class="legend-line solid"></span> Reports to / manages</li>
+      <li><span class="legend-line dashed"></span> Special Team support</li>
+      <li><span class="legend-line optional"></span> Optional role</li>
+    </ul>
+  </header>
+
+  <main class="chart-scroll">
+    <div class="chart" id="chart">
+      <svg class="lines" id="lines" aria-hidden="true"></svg>
+
+      <!-- Level 1 -->
+      <div class="level">
+        <button class="node node--exec" data-id="gm">
+          <span class="node-abbr">GM</span>
+          <span class="node-title">General Manager</span>
+        </button>
+      </div>
+
+      <!-- Level 2 -->
+      <div class="level">
+        <button class="node node--exec" data-id="agm">
+          <span class="node-abbr">AGM</span>
+          <span class="node-title">Assistant General Manager</span>
+        </button>
+      </div>
+
+      <!-- Level 3: assigns the projects (final title not decided yet) -->
+      <div class="level">
+        <button class="node node--pc" data-id="pc">
+          <span class="node-abbr">PC</span>
+          <span class="node-title">Project Coordinator</span>
+          <span class="node-sub">Assigns projects · title TBD</span>
+        </button>
+      </div>
+
+      <!-- Operations Managers, Special Team, Project Managers, Teams -->
+      <div class="org">
+        <!-- Operations Manager 1 side -->
+        <section class="side side--1">
+          <button class="node node--om" data-id="om-1" style="grid-area: om">
+            <span class="node-abbr">OM</span>
+            <span class="node-title">Operations Manager 1</span>
+          </button>
+          <button class="node node--special" data-id="spt-1" style="grid-area: spt">
+            <span class="node-abbr">SPT</span>
+            <span class="node-title">Special / Rapid Team</span>
+            <span class="node-sub">Stack Leaders</span>
+            <span class="node-meta"></span>
+          </button>
+
+          <button class="node node--pm" data-id="pm-1ac" style="grid-area: pac">
+            <span class="node-abbr">PM</span><span class="node-title">Project Manager 1</span>
+            <span class="node-sub">Team A &amp; C</span>
+          </button>
+          <button class="node node--pm node--optional" data-id="pm-1all" style="grid-area: pall">
+            <span class="node-abbr">PM</span><span class="node-title">Project Manager 2</span>
+            <span class="node-sub">All teams</span>
+            <span class="node-tag">Optional</span>
+          </button>
+          <button class="node node--pm" data-id="pm-1bd" style="grid-area: pbd">
+            <span class="node-abbr">PM</span><span class="node-title">Project Manager 3</span>
+            <span class="node-sub">Team B &amp; D</span>
+          </button>
+
+          <button class="node node--team" data-id="team-1a" style="grid-area: ta">
+            <span class="node-title">Team A</span><span class="node-sub">Laravel</span><span class="node-meta"></span>
+          </button>
+          <button class="node node--team" data-id="team-1c" style="grid-area: tc">
+            <span class="node-title">Team C</span><span class="node-sub">Python</span><span class="node-meta"></span>
+          </button>
+          <button class="node node--team" data-id="team-1b" style="grid-area: tb">
+            <span class="node-title">Team B</span><span class="node-sub">Laravel</span><span class="node-meta"></span>
+          </button>
+          <button class="node node--team" data-id="team-1d" style="grid-area: td">
+            <span class="node-title">Team D</span><span class="node-sub">MERN</span><span class="node-meta"></span>
+          </button>
+        </section>
+
+        <!-- Operations Manager 2 side -->
+        <section class="side side--2">
+          <button class="node node--om" data-id="om-2" style="grid-area: om">
+            <span class="node-abbr">OM</span>
+            <span class="node-title">Operations Manager 2</span>
+          </button>
+          <button class="node node--special" data-id="spt-2" style="grid-area: spt">
+            <span class="node-abbr">SPT</span>
+            <span class="node-title">Special / Rapid Team</span>
+            <span class="node-sub">Stack Leaders</span>
+            <span class="node-meta"></span>
+          </button>
+
+          <button class="node node--pm" data-id="pm-2ac" style="grid-area: pac">
+            <span class="node-abbr">PM</span><span class="node-title">Project Manager 4</span>
+            <span class="node-sub">Team A &amp; C</span>
+          </button>
+          <button class="node node--pm node--optional" data-id="pm-2all" style="grid-area: pall">
+            <span class="node-abbr">PM</span><span class="node-title">Project Manager 5</span>
+            <span class="node-sub">All teams</span>
+            <span class="node-tag">Optional</span>
+          </button>
+          <button class="node node--pm" data-id="pm-2bd" style="grid-area: pbd">
+            <span class="node-abbr">PM</span><span class="node-title">Project Manager 6</span>
+            <span class="node-sub">Team B &amp; D</span>
+          </button>
+
+          <button class="node node--team" data-id="team-2a" style="grid-area: ta">
+            <span class="node-title">Team A</span><span class="node-sub">Laravel</span><span class="node-meta"></span>
+          </button>
+          <button class="node node--team" data-id="team-2c" style="grid-area: tc">
+            <span class="node-title">Team C</span><span class="node-sub">Python</span><span class="node-meta"></span>
+          </button>
+          <button class="node node--team" data-id="team-2b" style="grid-area: tb">
+            <span class="node-title">Team B</span><span class="node-sub">Laravel</span><span class="node-meta"></span>
+          </button>
+          <button class="node node--team" data-id="team-2d" style="grid-area: td">
+            <span class="node-title">Team D</span><span class="node-sub">MERN</span><span class="node-meta"></span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
