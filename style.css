@@ -222,6 +222,21 @@ body {
     ".   ta ta  tc   tc   tb  tb  td td";
 }
 
+/* Alternative structure: 6 team columns plus one for the Special Team,
+   which hangs straight off the Project Coordinator on the far right. */
+.alt-org {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr) 1.3fr;
+  grid-template-areas:
+    ".   .   top top .   .   .  "
+    "om1 om1 om1 om2 om2 om2 .  "
+    "p1  p2  p3  p4  p5  p6  .  "
+    "t1  t2  t3  t4  t5  t6  spt";
+  row-gap: 64px;
+  align-items: start;
+  justify-items: center;
+}
+
 /* ---------- Boxes ---------- */
 .node {
   position: relative;

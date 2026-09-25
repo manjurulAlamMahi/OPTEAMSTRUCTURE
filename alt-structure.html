@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternative Structure · Operations Team</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <div>
+      <h1>Alternative Structure</h1>
+      <p class="hint">One Project Manager per team. Click any box to see what that role does.</p>
+    </div>
+    <nav class="top-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Structure</a></li>
+        <li><a href="alt-structure.html" class="active" aria-current="page">Alternative Structure</a></li>
+        <li><a href="workflow.html">Work Flow</a></li>
+        <li><a href="faq.html">FAQ's</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="chart-scroll">
+    <div class="chart" id="chart">
+      <svg class="lines" id="lines" aria-hidden="true"></svg>
+
+      <div class="alt-org">
+        <!-- Top -->
+        <button class="node node--pc" data-id="pc" style="grid-area: top">
+          <span class="node-abbr">PC</span>
+          <span class="node-title">Project Coordinator</span>
+        </button>
+
+        <!-- Operations Managers -->
+        <button class="node node--om" data-id="om-1" style="grid-area: om1">
+          <span class="node-abbr">OM</span>
+          <span class="node-title">Operations Manager 1</span>
+        </button>
+        <button class="node node--om" data-id="om-2" style="grid-area: om2">
+          <span class="node-abbr">OM</span>
+          <span class="node-title">Operations Manager 2</span>
+        </button>
+
+        <!-- Project Managers (one per team) -->
+        <button class="node node--pm" data-id="pm-1" style="grid-area: p1">
+          <span class="node-abbr">PM</span><span class="node-title">Project Manager 1</span>
+        </button>
+        <button class="node node--pm" data-id="pm-2" style="grid-area: p2">
+          <span class="node-abbr">PM</span><span class="node-title">Project Manager 2</span>
+        </button>
+        <button class="node node--pm" data-id="pm-3" style="grid-area: p3">
+          <span class="node-abbr">PM</span><span class="node-title">Project Manager 3</span>
+        </button>
+        <button class="node node--pm" data-id="pm-4" style="grid-area: p4">
+          <span class="node-abbr">PM</span><span class="node-title">Project Manager 4</span>
+        </button>
+        <button class="node node--pm" data-id="pm-5" style="grid-area: p5">
+          <span class="node-abbr">PM</span><span class="node-title">Project Manager 5</span>
+        </button>
+        <button class="node node--pm" data-id="pm-6" style="grid-area: p6">
+          <span class="node-abbr">PM</span><span class="node-title">Project Manager 6</span>
+        </button>
+
+        <!-- Teams -->
+        <button class="node node--team" data-id="team-1" style="grid-area: t1">
+          <span class="node-title">Team 1</span><span class="node-sub">Web &amp; Mobile</span><span class="node-meta"></span>
+        </button>
+        <button class="node node--team" data-id="team-2" style="grid-area: t2">
+          <span class="node-title">Team 2</span><span class="node-sub">Web &amp; Mobile</span><span class="node-meta"></span>
+        </button>
+        <button class="node node--team" data-id="team-3" style="grid-area: t3">
+          <span class="node-title">Team 3</span><span class="node-sub">Web &amp; Mobile</span><span class="node-meta"></span>
+        </button>
+        <button class="node node--team" data-id="team-4" style="grid-area: t4">
+          <span class="node-title">Team 4</span><span class="node-sub">Web &amp; Mobile</span><span class="node-meta"></span>
+        </button>
+        <button class="node node--team" data-id="team-5" style="grid-area: t5">
+          <span class="node-title">Team 5</span><span class="node-sub">Django &amp; MERN</span><span class="node-meta"></span>
+        </button>
+        <button class="node node--team" data-id="team-6" style="grid-area: t6">
+          <span class="node-title">Team 6</span><span class="node-sub">n8n &amp; AI</span><span class="node-meta"></span>
+        </button>
+
+        <!-- Special Team, straight under the Project Coordinator -->
+        <button class="node node--special" data-id="spt" style="grid-area: spt">
+          <span class="node-abbr">SPT</span>
+          <span class="node-title">Special / Rapid Team</span>
+          <span class="node-sub">Stack Leaders</span>
+          <span class="node-meta"></span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="notes.js"></script>
+  <script src="alt-structure.js"></script>
+  <script src="chart.js"></script>
+</body>
+
+</html>
