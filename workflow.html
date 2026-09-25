@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Flow · Operations Team</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <div>
+      <h1>Work Flow</h1>
+      <p class="hint">How a project moves from the 07 KAM Sheet to delivery.</p>
+    </div>
+    <nav class="top-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Structure</a></li>
+        <li><a href="workflow.html" class="active" aria-current="page">Work Flow</a></li>
+        <li><a href="faq.html">FAQ's</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-body page-body--wide">
+
+    <!-- ===================== Workflow 1 ===================== -->
+    <section class="flow">
+      <div class="flow-head">
+        <span class="flow-num">1</span>
+        <div>
+          <h2>Project Assignment</h2>
+          <p>Who hands the project to whom, from the sheet down to the developer.</p>
+        </div>
+      </div>
+
+      <ol class="chain">
+        <li class="step step--source">
+          <span class="step-role">07 KAM Sheet</span>
+          <h3>New project logged</h3>
+          <p>Every new project starts here. It's the single source for all incoming work.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">PC · Project Coordinator</span>
+          <h3>Pick up &amp; assign</h3>
+          <p>Takes the project from the sheet, checks deadline &amp; scope, sets priority and assigns it to an Operations Manager.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">OM · Operations Manager</span>
+          <h3>Choose the PM</h3>
+          <p>Assigns the project to the Project Manager whose teams match the stack.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">PM · Project Manager</span>
+          <h3>Plan &amp; hand out tasks</h3>
+          <p>Breaks the project into tasks and assigns them to developers.</p>
+        </li>
+        <li class="step step--dev">
+          <span class="step-role">DEV · Developer</span>
+          <h3>Build</h3>
+          <p>Completes the tasks, updates GitHub and sends progress updates back to the PM.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== Workflow 2 ===================== -->
+    <section class="flow">
+      <div class="flow-head">
+        <span class="flow-num">2</span>
+        <div>
+          <h2>Project Handling &amp; Tracking</h2>
+          <p>How a project is prioritised, routed to the right team and kept on schedule until delivery.</p>
+        </div>
+      </div>
+
+      <div class="flow2">
+        <div class="flow2-main">
+          <div class="step">
+            <span class="step-role">PC · Project Coordinator</span>
+            <h3>Check deadline &amp; set priority</h3>
+            <p>Reviews deadline, scope and urgency, then passes the project to the OM with a clear priority.</p>
+          </div>
+
+          <div class="vline"></div>
+
+          <div class="step">
+            <span class="step-role">OM · Operations Manager</span>
+            <h3>Decide who builds it</h3>
+            <p>Checks priority and required skills.</p>
+          </div>
+
+          <div class="vline"></div>
+
+          <div class="decision"><span>Rapid, high-priority or<br>needs a stack specialist?</span></div>
+
+          <div class="branch">
+            <div class="branch-col">
+              <span class="branch-label">Yes</span>
+              <div class="step step--special">
+                <span class="step-role">SPT · Special / Rapid Team</span>
+                <h3>Special Team builds it</h3>
+                <p>OM assigns the project to the Special Team <b>and</b> names a PM to track it. The Special Team focuses only on the work.</p>
+              </div>
+              <div class="vline"></div>
+              <div class="step">
+                <span class="step-role">PM · Project Manager</span>
+                <h3>PM tracks &amp; reports</h3>
+                <p>Follows progress, runs client meetings and passes every update between the Special Team and Sales.</p>
+              </div>
+            </div>
+
+            <div class="branch-col">
+              <span class="branch-label">No</span>
+              <div class="step">
+                <span class="step-role">PM · Project Manager</span>
+                <h3>PM's team builds it</h3>
+                <p>OM assigns it to a PM. The PM assigns tasks to developers, runs meetings and makes sure work is completed.</p>
+              </div>
+              <div class="vline"></div>
+              <div class="step">
+                <span class="step-role">PM · Project Manager</span>
+                <h3>PM tracks &amp; reports</h3>
+                <p>Tracks tasks, holds client meetings and keeps Sales updated.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="merge"></div>
+
+          <div class="step step--sales">
+            <span class="step-role">PM → Sales</span>
+            <h3>Delivery &amp; handover</h3>
+            <p>PM confirms the work is complete and reports delivery to Sales. Delivery &amp; cancel data flows back up to OM, PC and management.</p>
+          </div>
+        </div>
+
+        <!-- Runs alongside the whole flow -->
+        <aside class="flow2-rail">
+          <span class="step-role">PC · Project Coordinator</span>
+          <h3>Deadline watch</h3>
+          <p>From assignment to delivery, the PC keeps checking deadlines on the Project Tracker and flags risks to the OM early.</p>
+          <span class="rail-tag">Continuous</span>
+        </aside>
+      </div>
+
+      <ul class="rules">
+        <li><b>One voice to Sales.</b> The Special Team never talks to Sales directly. All updates go through the assigned PM.</li>
+        <li><b>Every project has a PM.</b> Even when the Special Team builds it, a PM owns tracking, meetings and reporting.</li>
+        <li><b>Priority is set once, at the top.</b> The PC sets it and the OM uses it to decide Special Team vs. regular team.</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

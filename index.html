@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Operations Team Structure</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header class="page-header">
@@ -13,11 +15,13 @@
       <h1>Operations Team Structure</h1>
       <p class="hint">Click any box to see what that role does.</p>
     </div>
-    <ul class="legend">
-      <li><span class="legend-line solid"></span> Reports to / manages</li>
-      <li><span class="legend-line dashed"></span> Special Team support</li>
-      <li><span class="legend-line optional"></span> Optional role</li>
-    </ul>
+    <nav class="top-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" class="active" aria-current="page">Structure</a></li>
+        <li><a href="workflow.html">Work Flow</a></li>
+        <li><a href="faq.html">FAQ's</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main class="chart-scroll">
@@ -33,10 +37,15 @@
       </div>
 
       <!-- Level 2 -->
-      <div class="level">
+      <div class="level level--with-sales">
         <button class="node node--exec" data-id="agm">
           <span class="node-abbr">AGM</span>
           <span class="node-title">Assistant General Manager</span>
+        </button>
+        <button class="node node--sales" data-id="sales">
+          <span class="node-abbr">SALES</span>
+          <span class="node-title">Sales</span>
+          <span class="node-sub">Deals &amp; Client Acquisition</span>
         </button>
       </div>
 
@@ -139,4 +148,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

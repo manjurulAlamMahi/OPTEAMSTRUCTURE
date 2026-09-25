@@ -6,124 +6,139 @@ const NOTES = {
   gm: {
     abbr: 'GM',
     label: 'General Manager',
-    short: "Manages the overall organization and ensures that all major departments, operations, projects, sales, and deliveries are working toward the company's targets.",
-    receives: 'Performance, sales and delivery updates from the AGM',
-    delivers: 'Company direction, targets and key decisions to the AGM',
-    duties: [
-      'Manages the overall organization',
-      'Keeps all departments, teams, projects, operations, sales and deliveries moving in the right direction',
-      'Sets company targets and makes key decisions',
+    short: 'Oversees organizational direction, sales, FSD, CMS, and high-level performance metrics.',
+    tasks: [
+      '07 KAM overall status check',
+      'Escalation Group Check',
+      'Manage Sales + FSD + CMS',
+      'Review Delivery Performance',
+      'Review Overall Performance',
+      'Receive Delivery & Cancel Data',
+      'Communication With Sales',
+      'Check Profile Health',
+      'Profile Audit',
+      'Client Message Pass & Receive',
     ],
   },
   agm: {
     abbr: 'AGM',
     label: 'Assistant General Manager',
-    short: 'Monitors sales, operations, project delivery, and overall performance to ensure the organization is progressing toward its targets.',
-    receives: 'Direction and targets from the GM; project status from the Project Coordinator',
-    delivers: 'Performance updates to the GM; priorities and targets to the Project Coordinator',
-    duties: [
-      'Supports the General Manager',
-      'Checks that sales targets are being achieved',
-      'Checks that operations are running properly',
-      'Checks that project deliveries are on track',
-      'Checks that teams are meeting their targets',
-      'Checks that overall business execution is progressing successfully',
+    short: 'Assists the GM in monitoring sales, operations, profile health, delivery data, and deadlines.',
+    tasks: [
+      '07 KAM overall status check',
+      'Escalation Group Check',
+      'Manage Sales + FSD + CMS',
+      'Review Delivery Performance',
+      'Review Overall Performance',
+      'Receive Delivery & Cancel Data',
+      'Communication With Sales',
+      'Check Profile Health',
+      'Profile Audit',
+      'Project Deadline Check',
+      'Client Message Pass & Receive',
+    ],
+  },
+  sales: {
+    abbr: 'SALES',
+    label: 'Sales Department',
+    short: 'Brings in new client projects, communicates requirements with management, and hands over project scopes to the Project Coordinator.',
+    tasks: [
+      'Manage Sales + FSD + CMS',
+      'Communication With Sales',
+      'Client Message Pass & Receive',
+      '07 KAM overall status check',
+      'Escalation Group Check',
+      'Handover Project To FSD / PC',
+      'Review Delivery & Cancel Data',
     ],
   },
   pc: {
     abbr: 'PC',
     label: 'Project Coordinator',
-    short: 'Assigns projects to Operation Managers, collects delivery plans and progress, monitors delivery targets, and checks overall project health.',
-    receives: 'Projects, priorities and targets from management (AGM)',
-    delivers: 'Assigned projects to the Operation Managers; delivery status and project health to management',
-    duties: [
-      'Assigns projects to the Operation Managers',
-      'Collects delivery updates from Operation Managers',
-      'Monitors project delivery targets',
-      'Checks FPT / delivery targets and progress',
-      'Collects delivery plans from Operation Managers',
-      'Monitors the overall health / status of projects',
-      'Makes sure projects move according to the planned delivery targets',
-      'Coordinates information between management and operations',
+    short: 'Assigns projects to FSD, monitors Operations Managers, tracks delivery progress, and audits projects.',
+    tasks: [
+      '07 KAM overall status check',
+      'Escalation Group Check',
+      'Assign Project To FSD',
+      'Review Operation Manager',
+      'Collect Delivery & Cancel Data',
+      'Communication With Sales',
+      'Profile Audit',
+      'Project Audit',
+      'Project Deadline Check',
+      'Client Message Pass & Receive',
+      'Project Tracker',
     ],
   },
   om: {
-    abbr: 'OM',
+    abbr: 'OP',
     label: 'Operation Manager',
-    short: 'Assigns projects to Project Managers, manages delivery planning, monitors deadlines, and ensures projects stay on schedule.',
-    receives: 'Projects from the Project Coordinator; delivery plans from Project Managers',
-    delivers: 'Assigned projects to Project Managers; delivery plans and progress to the Project Coordinator',
-    duties: [
-      'Receives projects from the Project Coordinator',
-      'Assigns projects to Project Managers',
-      'Reviews the delivery plan provided by the Project Manager',
-      'Updates and maintains planned delivery dates',
-      'Monitors project deadlines',
-      'Checks whether projects are progressing according to plan',
-      'Follows up with Project Managers regarding delivery',
-      'Keeps project execution aligned with the agreed timeline',
+    short: 'Manages Project Managers and Special Team, reviews delivery data, and handles project tracking and urgent escalations.',
+    tasks: [
+      '07 KAM overall status check',
+      'Escalation Group Check',
+      'Manage Project Manager + Special',
+      'Review Project Manager',
+      'Collect Delivery & Cancel Data & Review',
+      'Communication With Sales',
+      'Project Audit',
+      'Project Deadline Check',
+      'Project Order Sheet Update',
+      'Client Message Pass & Receive',
+      'Client Meeting (In Case Of Emergency)',
+      'Task Manager',
+      'Project Tracker',
+      'Support Message Check And Write',
     ],
   },
   pm: {
     abbr: 'PM',
     label: 'Project Manager',
-    short: 'Manages the client project, coordinates the team, assigns Developer tasks, tracks deadlines and documentation, and communicates project progress to the client.',
-    receives: 'Client projects from the Operation Manager; completed work from Developers',
-    delivers: 'Tasks to Developers; progress to the client; delivery plan and status to the Operation Manager',
-    duties: [
-      'Takes ownership of the assigned client project',
-      'Ensures the project is progressing smoothly',
-      'Creates and keeps project documentation up to date',
-      'Tracks project deadlines',
-      'Coordinates project communication',
-      'Passes important updates and messages between the team and client',
-      'Assigns tasks to Developers and monitors their progress',
-      'Collects completed work from Developers',
-      'Reviews project progress and delivery status',
-      'Communicates daily / regular progress to the client',
-      'Delivers the project according to the planned timeline',
+    short: 'Manages development teams, assigns developer tasks, updates project sheets, and leads client communication.',
+    tasks: [
+      '07 KAM overall status check',
+      'Escalation Group Check',
+      'Manage Teams + Special',
+      'Review Team Performance',
+      'Generate Delivery & Cancel Data',
+      'Communication With Sales',
+      'Project Audit',
+      'Project Deadline Check',
+      'Project Order Sheet Update',
+      'Client Message Pass & Receive',
+      'Client Meeting',
+      'Assign Task',
+      'Project Tracker',
     ],
   },
   spt: {
-    abbr: 'SPT',
-    label: 'Stack Leaders',
-    short: 'Handles priority and special-case projects while providing technical leadership and reviewing source code, architecture, and development standards.',
-    receives: 'Rapid, high-priority or special-case projects, sometimes assigned directly',
-    delivers: 'Completed priority projects; technical direction and code-review feedback to Developers',
-    duties: [
-      'Handles rapid or high-priority projects',
-      'Handles technically complex or special-case projects',
-      'Provides technical direction to Developers',
-      'Reviews project implementation',
-      'Checks that Developers follow the required technical structure',
-      'Reviews source code and architecture',
-      'Performs technical quality checks',
-      'Ensures coding standards and project structure are followed',
-      'Supports the team when a project needs extra technical expertise',
+    abbr: 'SPDev',
+    label: 'Special Dev / Stack Leader',
+    short: 'Delivers rapid & high-priority projects, trains developers, performs QA on stacks, and checks source code.',
+    tasks: [
+      'Project Deadline Check',
+      'Generate Update Message',
+      'Check Summary',
+      'Complete Task',
+      'QA Stacks Work',
+      'Update Github & Source Code Check + Other',
+      'Trainer',
+      'Work On Rapid Project & Important',
     ],
   },
   dev: {
     abbr: 'DEV',
     label: 'Developer',
-    short: 'Develops assigned features and fixes, follows the project structure, completes tasks within deadlines, and submits completed work to the Project Manager.',
-    receives: 'Tasks and requirements from the Project Manager',
-    delivers: 'Completed, tested features and fixes to the Project Manager',
-    duties: [
-      'Receives assigned tasks from the Project Manager',
-      'Understands the requirements and expected outcome',
-      'Develops the assigned features or fixes',
-      "Follows the project's technical structure and standards",
-      'Completes tasks within the given deadline',
-      'Tests their implementation',
-      'Submits completed work to the Project Manager',
-      'Provides progress updates when required',
-      'Fixes issues or changes found during review',
+    short: 'Completes assigned features and tasks, updates GitHub/source code, checks summaries, and generates progress updates.',
+    tasks: [
+      'Project Deadline Check',
+      'Generate Update Message',
+      'Check Summary',
+      'Complete Task',
+      'Update Github & Source Code Check',
     ],
   },
 };
-
-// The chain of work, shown at the bottom of every note
-const WORKFLOW = ['gm', 'agm', 'pc', 'om', 'pm', 'dev'];
 
 /* =========================================================
    2. BOXES IN THE CHART – which kind of role each box is,
@@ -132,6 +147,7 @@ const WORKFLOW = ['gm', 'agm', 'pc', 'om', 'pm', 'dev'];
 const ROLES = {
   gm: { type: 'gm' },
   agm: { type: 'agm' },
+  sales: { type: 'sales', context: 'Deals & client acquisition' },
   pc: { type: 'pc', context: 'Final title not decided yet' },
 };
 
@@ -197,15 +213,22 @@ SIDES.forEach((s) => {
                       `mid` = where the horizontal part sits (0–1)
             'side'  = horizontal arrow
             'dashed'= Special Team support line
+            'sales' = two-way link with Sales (green)
    ========================================================= */
 const EDGES = [
   { from: 'gm', to: 'agm', type: 'down' },
   { from: 'agm', to: 'pc', type: 'down' },
   { from: 'pc', to: 'om-1', type: 'tree' },
   { from: 'pc', to: 'om-2', type: 'tree' },
+  // Roles that work directly with Sales
+  { from: 'sales', to: 'gm', type: 'sales' },
+  { from: 'sales', to: 'agm', type: 'sales' },
+  { from: 'sales', to: 'pc', type: 'sales' },
 ];
 
 SIDES.forEach((s) => {
+  EDGES.push({ from: 'sales', to: `om-${s}`, type: 'sales' });
+  PM_GROUPS.forEach((g) => EDGES.push({ from: 'sales', to: `pm-${s}${g.key}`, type: 'sales', optional: !!g.optional }));
   EDGES.push({ from: `om-${s}`, to: `spt-${s}`, type: 'side' });
   PM_GROUPS.forEach((g) => {
     const pm = `pm-${s}${g.key}`;
@@ -225,6 +248,7 @@ const chart = document.getElementById('chart');
 const svg = document.getElementById('lines');
 const GAP = 3; // space between arrow tip and box
 let selectedId = null;
+let hoveredId = null;
 
 function total(members) {
   return Object.values(members).reduce((a, b) => a + b, 0);
@@ -263,7 +287,39 @@ function box(id) {
   return { l, t, r: l + r.width, b: t + r.height, w: r.width, h: r.height, cx: l + r.width / 2, cy: t + r.height / 2 };
 }
 
+// Sales links: GM, AGM and PC get a short direct line. OMs and PMs are
+// reached through one shared green line that drops down from Sales
+// (between Special Team 2 and OM 2) and splits along a bar above each row.
+function salesPath(to) {
+  const s = box('sales');
+  const b = box(to);
+  const role = ROLES[to].type;
+
+  if (role === 'gm') return `M ${b.r + GAP} ${b.cy} H ${s.cx} V ${s.t - GAP}`;
+  if (role === 'agm') return `M ${s.l - GAP} ${s.cy} H ${b.r + GAP}`;
+
+  const spt = box('spt-2');
+  const om = box('om-2');
+  const railX = Math.min(Math.max((spt.r + om.l) / 2, s.l + 12), s.r - 12);
+  const start = `M ${railX} ${s.b + GAP}`;
+
+  if (role === 'pc') return `${start} V ${b.cy} H ${b.r + GAP}`;
+
+  // Left side lands on the inner (right) part of the box, right side on the
+  // inner (left) part, away from the other lines that arrive at the top.
+  const leftSide = b.cx < railX;
+  if (role === 'om') {
+    const x = leftSide ? b.r - 28 : b.l + 28;
+    return `${start} V ${b.t - 14} H ${x} V ${b.t - GAP}`;
+  }
+  // PM: Special Team lines land on one side of the box, so use the other
+  const x = b.cx + (leftSide ? -1 : 1) * b.w * 0.3;
+  return `${start} V ${b.t - 22} H ${x} V ${b.t - GAP}`;
+}
+
 function pathFor(edge) {
+  if (edge.type === 'sales') return salesPath(edge.to);
+
   const a = box(edge.from);
   const b = box(edge.to);
 
@@ -294,15 +350,22 @@ function draw() {
       <marker id="arrow-special" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
         <path d="M0,0 L10,5 L0,10 z"></path>
       </marker>
+      <marker id="arrow-sales" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z"></path>
+      </marker>
     </defs>`;
 
-  EDGES.forEach((e) => {
-    const dashed = e.type === 'dashed';
-    html += `<path class="edge ${dashed ? 'dashed' : ''} ${e.optional ? 'optional' : ''}" data-from="${e.from}" data-to="${e.to}"
-      d="${pathFor(e)}" marker-end="url(#${dashed ? 'arrow-special' : 'arrow'})"></path>`;
+  // Sales links first so the reporting lines are drawn on top of them
+  const ordered = [...EDGES.filter((e) => e.type === 'sales'), ...EDGES.filter((e) => e.type !== 'sales')];
+  ordered.forEach((e) => {
+    const marker = { dashed: 'arrow-special', sales: 'arrow-sales' }[e.type] || 'arrow';
+    const both = e.type === 'sales' ? `marker-start="url(#${marker})"` : '';
+    html += `<path class="edge ${e.type} ${e.optional ? 'optional' : ''}" data-from="${e.from}" data-to="${e.to}"
+      d="${pathFor(e)}" ${both} marker-end="url(#${marker})"></path>`;
   });
 
   svg.innerHTML = html;
+  if (hoveredId) hoverLines(hoveredId);
   if (selectedId) {
     highlight(selectedId);
     positionNote();
@@ -333,13 +396,6 @@ function highlight(id) {
   });
 }
 
-function workflowHtml(type) {
-  if (type === 'spt') {
-    return `<p class="note-flow-alt">Special technical team working alongside the Operation Manager and Project Managers on priority, rapid and complex projects, and doing source-code quality checks.</p>`;
-  }
-  return WORKFLOW.map((t) => `<span class="${t === type ? 'current' : ''}">${NOTES[t].abbr}</span>`).join('<i>›</i>');
-}
-
 function renderNote(id) {
   const role = ROLES[id];
   const n = NOTES[role.type];
@@ -355,21 +411,20 @@ function renderNote(id) {
 
     <p class="note-short">${n.short}</p>
 
-    <dl class="note-io">
-      <dt>Receives</dt><dd>${n.receives}</dd>
-      <dt>Delivers</dt><dd>${n.delivers}</dd>
-    </dl>
-
-    <details class="note-duties">
-      <summary>Main responsibilities (${n.duties.length})</summary>
-      <ul>${n.duties.map((d) => `<li>${d}</li>`).join('')}</ul>
-    </details>
-
-    <div class="note-flow">${workflowHtml(role.type)}</div>
+    <div class="note-tasks-header">
+      <span class="note-tasks-title">Assigned Tasks</span>
+      <span class="note-tasks-count">${n.tasks.length}</span>
+    </div>
+    <ul class="note-tasks-list">
+      ${n.tasks.map((task) => `
+        <li>
+          <span class="note-task-check" aria-hidden="true">✓</span>
+          <span>${task}</span>
+        </li>
+      `).join('')}
+    </ul>
   `;
   note.querySelector('.note-close').addEventListener('click', closeNote);
-  // Opening the responsibilities list changes the card height
-  note.querySelector('.note-duties').addEventListener('toggle', positionNote);
 }
 
 function positionNote() {
@@ -444,6 +499,28 @@ chart.addEventListener('click', (e) => {
   // Teams also unfold their member list
   if (ROLES[id].members) setExpanded(node, true);
   openNote(id);
+});
+
+// Hover (or keyboard focus) on a box: light up the lines connected to it
+function hoverLines(id) {
+  svg.querySelectorAll('.edge').forEach((p) => {
+    p.classList.toggle('hover', !!id && (p.dataset.from === id || p.dataset.to === id));
+  });
+}
+
+function setHover(e) {
+  const node = e.target.closest('.node');
+  const id = node ? node.dataset.id : null;
+  if (id === hoveredId) return;
+  hoveredId = id;
+  hoverLines(id);
+}
+
+chart.addEventListener('mouseover', setHover);
+chart.addEventListener('focusin', setHover);
+chart.addEventListener('mouseleave', () => {
+  hoveredId = null;
+  hoverLines(null);
 });
 
 document.addEventListener('keydown', (e) => {
