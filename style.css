@@ -1118,9 +1118,11 @@ body {
 
 .chart {
   position: relative;
-  min-width: 1340px;
-  max-width: 1600px;
+  min-width: 1900px;
+  max-width: 2200px;
   margin: 0 auto;
+  /* scaled down by script.js to fit the screen width */
+  transform-origin: top left;
 }
 
 .lines {
@@ -1206,10 +1208,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 36px;
+  /* opening a team on one side must not stretch the other side */
+  align-items: start;
 }
 
-/* Each side uses 8 narrow columns (every team takes 2) plus one column
-   for its Special Team, which sits on the inner side next to the OM. */
+/* Each side uses 12 narrow columns (every team takes 2, every PM 4) plus
+   one column for its Special Team, which sits on the inner side next to the OM. */
 .side {
   display: grid;
   row-gap: 80px;
@@ -1219,19 +1223,19 @@ body {
 }
 
 .side--1 {
-  grid-template-columns: repeat(8, 1fr) 2.3fr;
+  grid-template-columns: repeat(12, 1fr) 2.3fr;
   grid-template-areas:
-    "om om om  om   om   om  om om spt"
-    ".  pac pac pall pall pbd pbd . ."
-    "ta ta tc  tc   tb   tb  td td .";
+    "om om om om om om om om om om om om spt"
+    "p1 p1 p1 p1 p2 p2 p2 p2 p3 p3 p3 p3 ."
+    "ta ta te te tb tb tc tc td td tf tf .";
 }
 
 .side--2 {
-  grid-template-columns: 2.3fr repeat(8, 1fr);
+  grid-template-columns: 2.3fr repeat(12, 1fr);
   grid-template-areas:
-    "spt om om  om   om   om  om  om om"
-    ".   .  pac pac  pall pall pbd pbd ."
-    ".   ta ta  tc   tc   tb  tb  td td";
+    "spt om om om om om om om om om om om om"
+    ".   p1 p1 p1 p1 p2 p2 p2 p2 p3 p3 p3 p3"
+    ".   ta ta te te tb tb tc tc td td tf tf";
 }
 
 /* ---------- Boxes ---------- */
@@ -1331,6 +1335,26 @@ body {
 .node--pm {
   width: 118px;
   padding: 10px 6px;
+}
+
+/* Assistant PM: small box sharing the PM's grid area, on its right */
+.node--apm {
+  justify-self: end;
+  align-self: center;
+  width: 64px;
+  padding: 6px 4px;
+  gap: 0;
+  background: #f7f9fb;
+  border-style: dashed;
+}
+
+.node--apm .node-abbr {
+  font-size: 10px;
+}
+
+.node--apm .node-title {
+  font-size: 10.5px;
+  line-height: 1.2;
 }
 
 .node--team {

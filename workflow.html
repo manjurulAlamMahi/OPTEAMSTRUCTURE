@@ -160,6 +160,318 @@
       </ul>
     </section>
 
+    <!-- ===================== Workflow 3 ===================== -->
+    <section class="flow">
+      <div class="flow-head">
+        <span class="flow-num">3</span>
+        <div>
+          <h2>Project Assignment &amp; Handling</h2>
+          <p>How a project is assigned, who owns it, how tasks are given and who handles support messages.</p>
+        </div>
+      </div>
+
+      <ol class="chain chain--4">
+        <li class="step step--source">
+          <span class="step-role">PC · Project Coordinator</span>
+          <h3>Assign to an OM</h3>
+          <p>Assigns the new project to Operations Manager 1 or Operations Manager 2.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">OM · Operations Manager</span>
+          <h3>Assign to a PM</h3>
+          <p>Picks one of their 3 Project Managers whose team fits the project's stack.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">PM · Project Manager</span>
+          <h3>Own the project</h3>
+          <p>From here the PM handles the whole project and picks the developers from their team.</p>
+        </li>
+        <li class="step step--dev">
+          <span class="step-role">DEV · Developer</span>
+          <h3>Work on the tasks</h3>
+          <p>Works only on the tasks the PM gives, on time, and reports back to the PM.</p>
+        </li>
+      </ol>
+
+      <div class="wf-grid">
+        <article class="wf-card">
+          <span class="step-role">PM · Project Manager</span>
+          <h3>One owner for the whole project</h3>
+          <p>After assignment, everything about the project goes through its PM:</p>
+          <ul class="wf-list">
+            <li>Client meetings</li>
+            <li>Client messages &amp; progress updates</li>
+            <li>Assigning developers to the project</li>
+            <li>Giving and tracking daily tasks</li>
+            <li>Deadline checks until delivery</li>
+          </ul>
+        </article>
+
+        <article class="wf-card">
+          <span class="step-role">PM → DEV</span>
+          <h3>Tasks are specific and written down</h3>
+          <p>No vague instructions. Every task says which client, what to do and by when.</p>
+          <div class="task-example">
+            <span class="task-example-tag">Example</span>
+            <p><b>Today:</b> Client X, have the update for the <b>Payment module</b> ready.</p>
+            <dl>
+              <dt>What</dt><dd>What needs to be built or changed</dd>
+              <dt>Expected</dt><dd>What the client is looking for</dd>
+              <dt>Deadline</dt><dd>When it must be ready</dd>
+            </dl>
+          </div>
+          <p class="wf-note">When a client sends a new request, the PM writes it down in this format before giving it to a developer.</p>
+        </article>
+
+        <article class="wf-card wf-card--om">
+          <span class="step-role">OM · Operations Manager</span>
+          <h3>Support messages go through the OM</h3>
+          <p>The PM does not write support messages.</p>
+          <ol class="wf-steps">
+            <li>The PM tells the OM the project's story: status, progress, issues.</li>
+            <li>The OM writes the support message from that.</li>
+            <li>The OM sends it and keeps the support messages up to date.</li>
+          </ol>
+        </article>
+      </div>
+
+      <ul class="rules">
+        <li><b>One project, one PM.</b> Meetings, client messages and updates all go through the assigned PM.</li>
+        <li><b>Clear tasks only.</b> Developers get specific, written tasks with a deadline, not open-ended requests.</li>
+        <li><b>Support messages belong to the OM.</b> The PM gives the story, the OM writes and sends.</li>
+      </ul>
+    </section>
+
+    <!-- ===================== Workflow 4 ===================== -->
+    <section class="flow">
+      <div class="flow-head">
+        <span class="flow-num">4</span>
+        <div>
+          <h2>KPI Distribution</h2>
+          <p>How delivered value is shared, so everyone works for delivery, not only for the biggest project.</p>
+        </div>
+      </div>
+
+      <div class="kpi-compare">
+        <article class="kpi-card kpi-card--now">
+          <span class="kpi-tag">Now</span>
+          <h3>Value follows the project you work on</h3>
+          <p>Each member gets the bill of the project they worked on.</p>
+          <ul class="wf-list">
+            <li>People chase the high-value projects instead of what the team needs</li>
+            <li>Nobody watches whether the project actually gets delivered, only their own part</li>
+            <li>A few members get a lot of value, others get very little</li>
+          </ul>
+        </article>
+        <article class="kpi-card kpi-card--new">
+          <span class="kpi-tag">New</span>
+          <h3>Value follows what gets delivered</h3>
+          <p>Everything the Operations Manager's side delivers is added up and shared equally by all its members.</p>
+          <ul class="wf-list">
+            <li>Everyone works for delivery, on any project</li>
+            <li>Everyone gets the same share, so the team works as one flow</li>
+            <li>Best performers get extra from a separate performance pool</li>
+          </ul>
+        </article>
+      </div>
+
+      <ol class="chain">
+        <li class="step step--source">
+          <span class="step-role">PM · Project Manager</span>
+          <h3>Deliver projects</h3>
+          <p>Projects are completed and delivered across the Operations Manager's teams.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">OM · Operations Manager</span>
+          <h3>Total delivered value</h3>
+          <p>All delivered project value under this OM is added up for the period.</p>
+        </li>
+        <li class="step step--special">
+          <span class="step-role">Performance pool</span>
+          <h3>Keep extra aside</h3>
+          <p>A separate amount is kept aside to reward the best performers.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">All members</span>
+          <h3>Equal share</h3>
+          <p>The delivered value is divided equally between every member under the OM.</p>
+        </li>
+        <li class="step step--dev">
+          <span class="step-role">PM → Best performers</span>
+          <h3>Extra benefit</h3>
+          <p>The PM names the best performers. They get extra value from the pool or another benefit.</p>
+        </li>
+      </ol>
+
+      <ul class="rules">
+        <li><b>Delivery is what counts.</b> KPI value comes from delivered projects, not from which project you were on.</li>
+        <li><b>Same share for everyone.</b> Every member under the OM gets an equal part of the delivered value.</li>
+        <li><b>Good work is still rewarded.</b> The PM picks the best performers for extra value or benefits.</li>
+      </ul>
+    </section>
+
+    <!-- ===================== Workflow 5 ===================== -->
+    <section class="flow">
+      <div class="flow-head">
+        <span class="flow-num">5</span>
+        <div>
+          <h2>Project Tracker &amp; Load Balancing</h2>
+          <p>One shared tool that everyone keeps updated: it shows every member's load and every project's progress, so work is assigned fairly and stuck projects are caught early.</p>
+        </div>
+      </div>
+
+      <ol class="chain chain--4">
+        <li class="step step--source">
+          <span class="step-role">PC · Project Coordinator</span>
+          <h3>Check the tracker daily</h3>
+          <p>Every day, checks the Project Tracker for each team's and member's current load.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">PC · Project Coordinator</span>
+          <h3>Find the free capacity</h3>
+          <p>For a new project, finds the team with the right stack and the lowest load.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">PC → OM → PM</span>
+          <h3>Assign to that team</h3>
+          <p>Gives the project to that team through its OM and PM (see Work Flow 3).</p>
+        </li>
+        <li class="step step--dev">
+          <span class="step-role">DEV + PM</span>
+          <h3>Keep it updated</h3>
+          <p>From then on, the developers and PM keep the project's progress up to date in the tracker.</p>
+        </li>
+      </ol>
+
+      <h3 class="wf-subtitle">Who uses the tracker</h3>
+      <div class="wf-grid wf-grid--4">
+        <article class="wf-card wf-card--dev">
+          <span class="step-role">DEV · Developer</span>
+          <h3>Updates it</h3>
+          <p>Continuously updates their tasks and progress on every project they work on.</p>
+        </article>
+        <article class="wf-card">
+          <span class="step-role">PM · Project Manager</span>
+          <h3>Checks &amp; updates it</h3>
+          <p>Checks that developers have updated it, and updates the project status too.</p>
+        </article>
+        <article class="wf-card wf-card--pc">
+          <span class="step-role">PC · Project Coordinator</span>
+          <h3>Checks load before assigning</h3>
+          <p>Looks at team and member load before giving out any new project.</p>
+        </article>
+        <article class="wf-card wf-card--om">
+          <span class="step-role">OM · Operations Manager</span>
+          <h3>Watches progress</h3>
+          <p>Follows the progress of every project and spots any that are stuck, so they can step in early.</p>
+        </article>
+      </div>
+
+      <div class="wf-grid wf-grid--2">
+        <article class="wf-card">
+          <span class="step-role">Why we need it</span>
+          <h3>Without a tracker, work piles up on the same people</h3>
+          <p>Projects keep going to members who are already busy, while others have almost nothing to do. We can't see it, so we can't fix it.</p>
+          <ul class="wf-list">
+            <li>Shows every member's load in one place</li>
+            <li>Makes it clear who can take a new project and who can't</li>
+            <li>Spreads the work evenly, so nobody is overloaded or left idle</li>
+          </ul>
+        </article>
+
+        <article class="wf-card">
+          <span class="step-role">Example · member load</span>
+          <h3>Who should get the new project?</h3>
+          <ul class="load-list">
+            <li class="load-row load--low"><span>Member A</span><span class="load-bar"><i style="width: 2.5%"></i></span><b>5%</b></li>
+            <li class="load-row"><span>Member B</span><span class="load-bar"><i style="width: 40%"></i></span><b>80%</b></li>
+            <li class="load-row load--high"><span>Member C</span><span class="load-bar"><i style="width: 45%"></i></span><b>90%</b></li>
+            <li class="load-row load--over"><span>Member D</span><span class="load-bar"><i style="width: 95%"></i></span><b>190%</b></li>
+          </ul>
+          <p class="load-legend"><span class="load-cap"></span>100% = full load</p>
+          <p class="wf-note">Member D is almost at double load while Member A is nearly free. The new project goes to <b>Member A</b>.</p>
+        </article>
+      </div>
+
+      <ul class="rules">
+        <li><b>Check the tracker every day.</b> The PC knows every team's load before assigning anything.</li>
+        <li><b>Lowest load first.</b> A new project goes to the right-stack team or member with the most free capacity.</li>
+        <li><b>Always up to date.</b> Developers and PMs update it continuously; the PM makes sure nobody skips it.</li>
+      </ul>
+    </section>
+
+    <!-- ===================== Workflow 6 ===================== -->
+    <section class="flow">
+      <div class="flow-head">
+        <span class="flow-num">6</span>
+        <div>
+          <h2>Special / Rapid Team: Audits &amp; Stack Leadership</h2>
+          <p>How the Special / Rapid Team (Stack Leaders and SQA) checks projects and leads their stack.</p>
+        </div>
+      </div>
+
+      <ol class="chain chain--4">
+        <li class="step step--source">
+          <span class="step-role">PM or OM</span>
+          <h3>Assign an audit</h3>
+          <p>A PM or OM asks the Special Team to audit or track a specific project.</p>
+        </li>
+        <li class="step step--special">
+          <span class="step-role">SPT · Stack Leader</span>
+          <h3>Audit the source code</h3>
+          <p>Goes through the project's source code: structure, tech used and code quality.</p>
+        </li>
+        <li class="step step--special">
+          <span class="step-role">SPT · Stack Leader + SQA</span>
+          <h3>Check the real progress</h3>
+          <p>Compares the actual work with the updates on the tracker: is it really done, or only reported as done?</p>
+        </li>
+        <li class="step">
+          <span class="step-role">SPT → PM / OM</span>
+          <h3>Report back</h3>
+          <p>Reports what they found to the PM or OM who asked, including any issues or fake updates.</p>
+        </li>
+      </ol>
+
+      <div class="wf-grid">
+        <article class="wf-card wf-card--om">
+          <span class="step-role">Audit</span>
+          <h3>What an audit checks</h3>
+          <ul class="wf-list">
+            <li>Source code structure</li>
+            <li>What they are coding with (stack, libraries, tools)</li>
+            <li>Code quality and standards for that stack</li>
+            <li>Work progress: completed or not</li>
+            <li>Fake or wrong updates on the tracker</li>
+          </ul>
+        </article>
+
+        <article class="wf-card wf-card--om">
+          <span class="step-role">Stack Leader</span>
+          <h3>Meetings with their stack</h3>
+          <p>Each Stack Leader represents their stack across the teams.</p>
+          <ul class="wf-list">
+            <li>Holds meetings with all members of their stack</li>
+            <li>Shares updates, standards and lessons from audits</li>
+            <li>Helps members who are stuck</li>
+          </ul>
+        </article>
+
+        <article class="wf-card wf-card--om">
+          <span class="step-role">SQA</span>
+          <h3>Quality checks</h3>
+          <p>The SQA member in each Special Team tests the work during audits, and check important and rapid projects before they go out.</p>
+          <p class="wf-note">The Special Team also builds rapid and high-priority projects (see Work Flow 2).</p>
+        </article>
+      </div>
+
+      <ul class="rules">
+        <li><b>Audits on request.</b> A PM or OM assigns every audit, so the Special Team knows exactly what to check.</li>
+        <li><b>Real progress, not reported progress.</b> The audit checks the actual code and work, not only the tracker.</li>
+        <li><b>One voice per stack.</b> The Stack Leader keeps every member of their stack updated through regular meetings.</li>
+      </ul>
+    </section>
+
   </main>
 
 </body>
