@@ -42,6 +42,708 @@ body {
   border-radius: 10px;
 }
 
+/* ---------- Alternative structure chart ---------- */
+.alt-chart {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(200px, 1fr));
+  grid-template-areas:
+    ".   .   top top .   .   ."
+    "om1 om1 om1 om2 om2 om2 .";
+  row-gap: 56px;
+  column-gap: 14px;
+  align-items: start;
+  min-width: 1500px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.alt-chart .lines path {
+  opacity: 1;
+}
+
+.anode {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  justify-self: center;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.anode--top {
+  width: 240px;
+  padding: 16px;
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.anode--top .node-abbr {
+  color: #c9d6df;
+}
+
+.anode--om {
+  width: 220px;
+  border-top: 4px solid var(--accent);
+}
+
+.anode--lead {
+  width: 100%;
+}
+
+.team-card {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.team-card-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 9px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.team-card--purple .team-card-head {
+  background: #7c4dff;
+}
+
+.team-card--orange .team-card-head {
+  background: #ee4b22;
+}
+
+.team-count {
+  padding: 1px 8px;
+  font-size: 11px;
+  background: rgba(255, 255, 255, .25);
+  border-radius: 999px;
+}
+
+.team-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+
+.team-table td {
+  padding: 6px 8px;
+  border-top: 1px solid #eef0f3;
+  vertical-align: top;
+}
+
+.team-table td + td {
+  border-left: 1px solid #eef0f3;
+}
+
+.team-table .t-id {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.team-table .row--check td:nth-child(2) {
+  text-decoration: underline dotted #c08a1e;
+  text-underline-offset: 3px;
+}
+
+.team-table .row--teal td {
+  background: #5fd9c9;
+}
+
+.team-table .row--pink td {
+  background: #fcc6c0;
+}
+
+.alt-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  max-width: 1800px;
+  margin: 36px auto 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.alt-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 22px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.swatch--check {
+  height: 0;
+  border-bottom: 2px dotted #c08a1e;
+  border-radius: 0;
+}
+
+.swatch--teal {
+  background: #5fd9c9;
+}
+
+.swatch--pink {
+  background: #fcc6c0;
+}
+
+/* ---------- My Suggestion ---------- */
+.sg-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.sg-points {
+  margin: 0;
+  padding: 18px 22px 18px 38px;
+  font-size: 14px;
+  line-height: 1.8;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.sg-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.sg-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.sg-stat b {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sg-stat span {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.sg-stat--hire b {
+  color: #c2410c;
+}
+
+.sg-hire-total {
+  padding: 14px 18px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+}
+
+.sg-hire-total h2 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #9a3412;
+}
+
+.sg-hire-total ul,
+.hire ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.sg-hire-total li,
+.hire li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sg-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.sg-sub {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.sg-tag {
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.sg-teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.sg-team {
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 10px;
+}
+
+.sg-team--extra {
+  border-top-color: var(--line);
+  border-style: dashed;
+  border-top-style: solid;
+}
+
+.sg-team-head {
+  position: relative;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sg-team-head h3 {
+  margin: 2px 0 2px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sg-team-head p {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.sg-fill {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 2px 9px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: var(--accent-soft);
+  border-radius: 999px;
+}
+
+.slot-group {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.slot-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.slot-count.is-short {
+  color: #c2410c;
+}
+
+.slot-group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.slot-group li {
+  display: flex;
+  gap: 10px;
+  padding: 3px 0;
+}
+
+.slot-group .t-id {
+  min-width: 42px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.slot-empty {
+  margin: 3px 0;
+  padding: 3px 8px !important;
+  font-size: 12px;
+  color: #c2410c;
+  border: 1px dashed #fdba74;
+  border-radius: 6px;
+}
+
+.hire {
+  margin: 0;
+  padding: 10px 16px 12px;
+  font-size: 13px;
+  background: #fff7ed;
+}
+
+.hire summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #9a3412;
+  cursor: pointer;
+}
+
+.hire[open] summary {
+  margin-bottom: 8px;
+}
+
+.hire-badge {
+  padding: 0 8px;
+  font-size: 11.5px;
+  color: #fff;
+  background: #ea580c;
+  border-radius: 999px;
+}
+
+.hire--done {
+  color: var(--sales);
+  background: #ecfdf3;
+}
+
+.sg-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.sg .team-table {
+  font-size: 13px;
+}
+
+/* ---------- Alternative Work Flow ---------- */
+.chain.chain--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.wf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.wf-card {
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 10px;
+}
+
+.wf-card--om {
+  border-top-color: var(--special);
+}
+
+.wf-card h3 {
+  margin: 6px 0 6px;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.wf-card p {
+  margin: 0 0 8px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #475467;
+}
+
+.wf-list,
+.wf-steps {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.task-example {
+  position: relative;
+  margin: 10px 0;
+  padding: 12px 14px;
+  background: var(--accent-soft);
+  border-radius: 8px;
+}
+
+.task-example-tag {
+  position: absolute;
+  top: -9px;
+  right: 10px;
+  padding: 1px 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.task-example p {
+  color: var(--text);
+}
+
+.task-example dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  margin: 0;
+  font-size: 12.5px;
+}
+
+.task-example dt {
+  font-weight: 700;
+}
+
+.task-example dd {
+  margin: 0;
+  color: #475467;
+}
+
+.wf-note {
+  font-style: italic;
+}
+
+/* ---------- My Suggestion: tabs + structure chart ---------- */
+.sg-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 18px 16px 0;
+}
+
+.sg-tab {
+  padding: 9px 20px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.sg-tab:hover,
+.sg-tab:focus-visible {
+  color: var(--text);
+  border-color: var(--accent);
+  outline: none;
+}
+
+.sg-tab.active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.sg-chart {
+  grid-template-columns: repeat(7, minmax(180px, 1fr));
+  grid-template-areas: none;
+  min-width: 1340px;
+  max-width: 1600px;
+}
+
+.anode--rapid {
+  width: 100%;
+  background: var(--special-soft);
+  border-color: var(--special);
+  border-top: 4px solid var(--special);
+}
+
+.anode--special {
+  width: 100%;
+  background: #f3eeff;
+  border-color: #7c4dff;
+  border-top: 4px solid #7c4dff;
+}
+
+.anode--team {
+  width: 100%;
+  background: var(--accent-soft);
+}
+
+.anode .node-sub {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.lines path.line--dashed {
+  stroke: var(--special);
+  stroke-dasharray: 6 5;
+}
+
+.lines path.line--special {
+  stroke: #7c4dff;
+}
+
+.sg-chart .lines marker path {
+  fill: var(--line);
+}
+
+.sg-chart .lines marker#sg-arrow-special path {
+  fill: var(--special);
+}
+
+/* Structure boxes are clickable, like My Idea */
+.sg-chart .anode {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+
+.sg-chart .anode--top {
+  color: #fff;
+}
+
+.sg-chart .anode--om {
+  width: 180px;
+}
+
+/* Rapid Teams sit beside their OM, leaving room for the dashed link */
+.sg-chart .anode--rapid {
+  width: 150px;
+}
+
+.sg-chart [data-id="rapid-1"] {
+  justify-self: start;
+}
+
+.sg-chart [data-id="rapid-2"] {
+  justify-self: end;
+}
+
+.sg-chart .anode:hover,
+.sg-chart .anode:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .09);
+  outline: none;
+}
+
+.sg-chart .anode.selected {
+  box-shadow: 0 0 0 3px #b8c7d1;
+}
+
+.sg-chart .lines path.edge {
+  opacity: .55;
+}
+
+.sg-chart.has-selection .lines path.edge {
+  opacity: .12;
+}
+
+.sg-chart .lines path.edge.hover,
+.sg-chart.has-selection .lines path.edge.active {
+  opacity: 1;
+  stroke-width: 2.2;
+}
+
+.rapid-stack {
+  width: 90px;
+  font-weight: 600;
+}
+
+.rapid-open {
+  color: #c2410c;
+  font-style: italic;
+}
+
+.sg-title--spaced {
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+/* ---------- Version switch (My Idea / Alternative) ---------- */
+.version-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 40px;
+  background: var(--accent);
+}
+
+.version-switch {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  background: rgba(255, 255, 255, .12);
+  border-radius: 999px;
+}
+
+.version-switch a {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .75);
+  text-decoration: none;
+  border-radius: 999px;
+  transition: color .15s, background .15s;
+}
+
+.version-switch a:hover,
+.version-switch a:focus-visible {
+  color: #fff;
+  outline: none;
+}
+
+.version-switch a.active {
+  color: var(--accent);
+  background: #fff;
+}
+
+.version-note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .7);
+}
+
 /* ---------- Header ---------- */
 .page-header {
   display: flex;
@@ -1039,11 +1741,29 @@ body {
   }
 
   .flow2,
-  .rules {
+  .rules,
+  .wf-grid,
+  .chain--4 {
     grid-template-columns: 1fr;
   }
 
   .flow {
     padding: 20px 16px 24px;
+  }
+
+  .sg-intro,
+  .sg-split,
+  .sg-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sg-intro,
+  .sg-split {
+    grid-template-columns: 1fr;
+  }
+
+  .version-bar {
+    flex-wrap: wrap;
+    padding: 10px 16px;
   }
 }

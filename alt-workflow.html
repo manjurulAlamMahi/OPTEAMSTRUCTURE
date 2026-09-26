@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Flow · Alternative · Operations Team</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="version-bar">
+    <nav class="version-switch" aria-label="Version">
+      <a href="index.html">My Idea</a>
+      <a href="alt-structure.html" class="active" aria-current="true">Alternative</a>
+    </nav>
+    <span class="version-note">Based on the current situation</span>
+  </div>
+
+  <header class="page-header">
+    <div>
+      <h1>Work Flow</h1>
+      <p class="hint">How a project moves through the alternative structure.</p>
+    </div>
+    <nav class="top-nav" aria-label="Main">
+      <ul>
+        <li><a href="alt-structure.html">Alternative Structure</a></li>
+        <li><a href="alt-suggestions.html">My Suggestion</a></li>
+        <li><a href="alt-workflow.html" class="active" aria-current="page">Work Flow</a></li>
+        <li><a href="alt-faq.html">FAQ's</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-body page-body--wide">
+
+    <!-- ===================== Workflow 1 ===================== -->
+    <section class="flow">
+      <div class="flow-head">
+        <span class="flow-num">1</span>
+        <div>
+          <h2>Project Assignment &amp; Handling</h2>
+          <p>How a project is assigned, who owns it, how tasks are given and who handles support messages.</p>
+        </div>
+      </div>
+
+      <ol class="chain chain--4">
+        <li class="step step--source">
+          <span class="step-role">PC · Project Coordinator</span>
+          <h3>Assign to an OM</h3>
+          <p>Assigns the new project to Operations Manager 1 or Operations Manager 2.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">OM · Operations Manager</span>
+          <h3>Assign to a PM</h3>
+          <p>Picks one of their 3 Project Managers whose team fits the project's stack.</p>
+        </li>
+        <li class="step">
+          <span class="step-role">PM · Project Manager</span>
+          <h3>Own the project</h3>
+          <p>From here the PM handles the whole project and picks the developers from their team.</p>
+        </li>
+        <li class="step step--dev">
+          <span class="step-role">DEV · Developer</span>
+          <h3>Work on the tasks</h3>
+          <p>Works only on the tasks the PM gives, on time, and reports back to the PM.</p>
+        </li>
+      </ol>
+
+      <div class="wf-grid">
+        <article class="wf-card">
+          <span class="step-role">PM · Project Manager</span>
+          <h3>One owner for the whole project</h3>
+          <p>After assignment, everything about the project goes through its PM:</p>
+          <ul class="wf-list">
+            <li>Client meetings</li>
+            <li>Client messages &amp; progress updates</li>
+            <li>Assigning developers to the project</li>
+            <li>Giving and tracking daily tasks</li>
+            <li>Deadline checks until delivery</li>
+          </ul>
+        </article>
+
+        <article class="wf-card">
+          <span class="step-role">PM → DEV</span>
+          <h3>Tasks are specific and written down</h3>
+          <p>No vague instructions. Every task says which client, what to do and by when.</p>
+          <div class="task-example">
+            <span class="task-example-tag">Example</span>
+            <p><b>Today:</b> Client X, have the update for the <b>Payment module</b> ready.</p>
+            <dl>
+              <dt>What</dt><dd>What needs to be built or changed</dd>
+              <dt>Expected</dt><dd>What the client is looking for</dd>
+              <dt>Deadline</dt><dd>When it must be ready</dd>
+            </dl>
+          </div>
+          <p class="wf-note">When a client sends a new request, the PM writes it down in this format before giving it to a developer.</p>
+        </article>
+
+        <article class="wf-card wf-card--om">
+          <span class="step-role">OM · Operations Manager</span>
+          <h3>Support messages go through the OM</h3>
+          <p>The PM does not write support messages.</p>
+          <ol class="wf-steps">
+            <li>The PM tells the OM the project's story: status, progress, issues.</li>
+            <li>The OM writes the support message from that.</li>
+            <li>The OM sends it and keeps the support messages up to date.</li>
+          </ol>
+        </article>
+      </div>
+
+      <ul class="rules">
+        <li><b>One project, one PM.</b> Meetings, client messages and updates all go through the assigned PM.</li>
+        <li><b>Clear tasks only.</b> Developers get specific, written tasks with a deadline, not open-ended requests.</li>
+        <li><b>Support messages belong to the OM.</b> The PM gives the story, the OM writes and sends.</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+
+</html>
