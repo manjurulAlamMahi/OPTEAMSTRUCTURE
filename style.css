@@ -147,7 +147,7 @@ body {
   vertical-align: top;
 }
 
-.team-table td+td {
+.team-table td + td {
   border-left: 1px solid #eef0f3;
 }
 
@@ -216,7 +216,6 @@ body {
 }
 
 .sg-points {
-  grid-column: 1 / -1;
   margin: 0;
   padding: 18px 22px 18px 38px;
   font-size: 14px;
@@ -457,6 +456,249 @@ body {
 
 .sg .team-table {
   font-size: 13px;
+}
+
+/* ---------- Alternative Work Flow ---------- */
+.chain.chain--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.wf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.wf-card {
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 10px;
+}
+
+.wf-card--om {
+  border-top-color: var(--special);
+}
+
+.wf-card h3 {
+  margin: 6px 0 6px;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.wf-card p {
+  margin: 0 0 8px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #475467;
+}
+
+.wf-list,
+.wf-steps {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.task-example {
+  position: relative;
+  margin: 10px 0;
+  padding: 12px 14px;
+  background: var(--accent-soft);
+  border-radius: 8px;
+}
+
+.task-example-tag {
+  position: absolute;
+  top: -9px;
+  right: 10px;
+  padding: 1px 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.task-example p {
+  color: var(--text);
+}
+
+.task-example dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  margin: 0;
+  font-size: 12.5px;
+}
+
+.task-example dt {
+  font-weight: 700;
+}
+
+.task-example dd {
+  margin: 0;
+  color: #475467;
+}
+
+.wf-note {
+  font-style: italic;
+}
+
+/* ---------- My Suggestion: tabs + structure chart ---------- */
+.sg-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 18px 16px 0;
+}
+
+.sg-tab {
+  padding: 9px 20px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.sg-tab:hover,
+.sg-tab:focus-visible {
+  color: var(--text);
+  border-color: var(--accent);
+  outline: none;
+}
+
+.sg-tab.active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.sg-chart {
+  grid-template-columns: repeat(7, minmax(180px, 1fr));
+  grid-template-areas: none;
+  min-width: 1340px;
+  max-width: 1600px;
+}
+
+.anode--rapid {
+  width: 100%;
+  background: var(--special-soft);
+  border-color: var(--special);
+  border-top: 4px solid var(--special);
+}
+
+.anode--special {
+  width: 100%;
+  background: #f3eeff;
+  border-color: #7c4dff;
+  border-top: 4px solid #7c4dff;
+}
+
+.anode--team {
+  width: 100%;
+  background: var(--accent-soft);
+}
+
+.anode .node-sub {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.lines path.line--dashed {
+  stroke: var(--special);
+  stroke-dasharray: 6 5;
+}
+
+.lines path.line--special {
+  stroke: #7c4dff;
+}
+
+.sg-chart .lines marker path {
+  fill: var(--line);
+}
+
+.sg-chart .lines marker#sg-arrow-special path {
+  fill: var(--special);
+}
+
+/* Structure boxes are clickable, like My Idea */
+.sg-chart .anode {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+
+.sg-chart .anode--top {
+  color: #fff;
+}
+
+.sg-chart .anode--om {
+  width: 180px;
+}
+
+/* Rapid Teams sit beside their OM, leaving room for the dashed link */
+.sg-chart .anode--rapid {
+  width: 150px;
+}
+
+.sg-chart [data-id="rapid-1"] {
+  justify-self: start;
+}
+
+.sg-chart [data-id="rapid-2"] {
+  justify-self: end;
+}
+
+.sg-chart .anode:hover,
+.sg-chart .anode:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .09);
+  outline: none;
+}
+
+.sg-chart .anode.selected {
+  box-shadow: 0 0 0 3px #b8c7d1;
+}
+
+.sg-chart .lines path.edge {
+  opacity: .55;
+}
+
+.sg-chart.has-selection .lines path.edge {
+  opacity: .12;
+}
+
+.sg-chart .lines path.edge.hover,
+.sg-chart.has-selection .lines path.edge.active {
+  opacity: 1;
+  stroke-width: 2.2;
+}
+
+.rapid-stack {
+  width: 90px;
+  font-weight: 600;
+}
+
+.rapid-open {
+  color: #c2410c;
+  font-style: italic;
+}
+
+.sg-title--spaced {
+  margin-top: 40px;
+  margin-bottom: 12px;
 }
 
 /* ---------- Version switch (My Idea / Alternative) ---------- */
@@ -1115,7 +1357,6 @@ body {
   background: var(--accent-soft);
   border-radius: 50%;
 }
-
 /* =========================================================
    Work Flow page
    ========================================================= */
@@ -1269,7 +1510,7 @@ body {
   align-items: center;
 }
 
-.flow2-main>.step {
+.flow2-main > .step {
   width: min(100%, 420px);
 }
 
@@ -1353,7 +1594,7 @@ body {
   align-items: center;
 }
 
-.branch-col>.step {
+.branch-col > .step {
   width: 100%;
 }
 
@@ -1500,7 +1741,9 @@ body {
   }
 
   .flow2,
-  .rules {
+  .rules,
+  .wf-grid,
+  .chain--4 {
     grid-template-columns: 1fr;
   }
 
