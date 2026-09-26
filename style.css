@@ -49,6 +49,7 @@ body {
   grid-template-columns: repeat(7, minmax(200px, 1fr));
   grid-template-areas:
     ".   .   top top .   .   ."
+    ".   .   agm agm .   .   ."
     "om1 om1 om1 om2 om2 om2 .";
   row-gap: 56px;
   column-gap: 14px;
@@ -458,6 +459,140 @@ body {
   font-size: 13px;
 }
 
+/* ---------- FAQ ---------- */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-item[open] {
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .06);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.faq-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.faq-q {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.faq-a {
+  padding: 0 20px 20px 62px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475467;
+}
+
+.faq-a p {
+  margin: 0 0 12px;
+}
+
+.faq-points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-points > li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--special-soft);
+  border-left: 3px solid var(--special);
+  border-radius: 6px;
+}
+
+.faq-points b {
+  color: var(--text);
+}
+
+.faq-tasks {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-tasks li {
+  position: relative;
+  padding: 3px 0 3px 22px;
+}
+
+.faq-tasks li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--special);
+}
+
+.faq-note {
+  font-style: italic;
+}
+
+.faq-a a {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .faq-a {
+    padding-left: 20px;
+  }
+
+  .faq-points {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Alternative Work Flow ---------- */
 .chain.chain--4 {
   grid-template-columns: repeat(4, 1fr);
@@ -548,6 +683,181 @@ body {
 
 .wf-note {
   font-style: italic;
+}
+
+.wf-card a {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.kpi-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.kpi-card {
+  position: relative;
+  padding: 18px 20px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.kpi-card--now {
+  background: #fdf4f3;
+  border-color: #f3c7c0;
+}
+
+.kpi-card--new {
+  background: #eefaf3;
+  border-color: #a9dcbf;
+}
+
+.kpi-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 999px;
+}
+
+.kpi-card--now .kpi-tag {
+  background: #c2410c;
+}
+
+.kpi-card--new .kpi-tag {
+  background: var(--sales);
+}
+
+.kpi-card h3 {
+  margin: 8px 0 4px;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.kpi-card p {
+  margin: 0 0 8px;
+  font-size: 13.5px;
+  color: #475467;
+}
+
+.rules a {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.wf-grid.wf-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.wf-subtitle {
+  margin: 28px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wf-card--dev {
+  border-top-color: var(--line);
+}
+
+.wf-card--pc {
+  border-top-color: var(--sales);
+}
+
+.wf-grid.wf-grid--2 {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 28px;
+}
+
+.load-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 8px;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.load-row {
+  display: grid;
+  grid-template-columns: 76px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.load-row b {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Track shows 0–200%; the line in the middle is 100% (full load) */
+.load-bar {
+  position: relative;
+  height: 10px;
+  background: #eef0f3;
+  border-radius: 999px;
+}
+
+.load-bar::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: 50%;
+  border-left: 2px dashed var(--line);
+}
+
+.load-bar i {
+  display: block;
+  height: 100%;
+  background: var(--line);
+  border-radius: 999px;
+}
+
+.load--low .load-bar i,
+.load--low b {
+  background: var(--sales);
+}
+
+.load--low b {
+  background: none;
+  color: var(--sales);
+}
+
+.load--high .load-bar i {
+  background: #d97706;
+}
+
+.load--over .load-bar i {
+  background: #dc2626;
+}
+
+.load--over b {
+  color: #dc2626;
+}
+
+.load-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px !important;
+}
+
+.load-cap {
+  width: 0;
+  height: 14px;
+  border-left: 2px dashed var(--line);
 }
 
 /* ---------- My Suggestion: tabs + structure chart ---------- */
@@ -1743,6 +2053,9 @@ body {
   .flow2,
   .rules,
   .wf-grid,
+  .wf-grid.wf-grid--2,
+  .wf-grid.wf-grid--4,
+  .kpi-compare,
   .chain--4 {
     grid-template-columns: 1fr;
   }

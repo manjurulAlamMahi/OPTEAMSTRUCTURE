@@ -34,6 +34,7 @@ const MIN_PER_ROLE = 2;
 // slots = full team size per role (open slots can be hired later)
 // from  = current team whose members are placed here first
 // keep  = member IDs that must be in this team
+// pin   = member ID → exact role slot in this team
 const plan = [
   {
     label: 'Laravel Team 1', stack: 'Laravel', from: ['logic-lab'],
@@ -43,7 +44,15 @@ const plan = [
   { label: 'Laravel Team 2', stack: 'Laravel', from: ['pixel-pioneers'], slots: { uiux: 3, front: 4, flutter: 4, laravel: 5 } },
   { label: 'Laravel Team 3', stack: 'Laravel', from: ['stack-masters'], slots: { uiux: 3, front: 4, flutter: 4, laravel: 5 } },
   { label: 'Python Team', stack: 'Python · Django', from: ['codehydra'], slots: { uiux: 3, front: 4, flutter: 4, django: 5 } },
-  { label: 'MERN Team', stack: 'MERN · React Native', from: ['codehydra'], slots: { uiux: 2, 'mern-front': 3, 'mern-native': 3, 'mern-backend': 4 } },
+  {
+    label: 'MERN Team', stack: 'MERN · React Native', from: ['codehydra'],
+    pin: {
+      '15885': 'mern-front', '15866': 'mern-front', // Rabiul Haque, Sheikh Redwan Ahmed
+      '15757': 'mern-native', '16076': 'mern-native', // Asaduzzaman Hisam, Md Tayeb
+      '16816': 'mern-backend', '15864': 'mern-backend', // Abul Hasnat, Rashedul Islam
+    },
+    slots: { uiux: 2, 'mern-front': 3, 'mern-native': 3, 'mern-backend': 4 },
+  },
   { label: 'AI Team', stack: 'n8n · AI', from: ['dev-ninja'], slots: { 'n8n-front': 6, ai: 4 } },
 ];
 
@@ -74,8 +83,16 @@ plan.forEach((t) => {
 
 const fits = (m, slot) => (ROLE_FITS[m.role] || []).includes(slot);
 
-// 0) Kept members go in first
+// 0) Pinned members go into their exact slot, then kept members go in
 plan.forEach((t) => {
+  Object.entries(t.pin || {}).forEach(([id, slot]) => {
+    const m = pool.find((x) => x.id === id && !x.placed);
+    if (m && t.filled[slot] && t.filled[slot].length < t.slots[slot]) {
+      t.filled[slot].push(m);
+      m.placed = true;
+    }
+  });
+
   pool.filter((m) => (t.keep || []).includes(m.id)).forEach((m) => {
     const slot = Object.keys(t.slots).find((s) => fits(m, s) && t.filled[s].length < t.slots[s]);
     if (slot) {

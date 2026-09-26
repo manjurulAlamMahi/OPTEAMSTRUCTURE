@@ -12,7 +12,7 @@ teams.forEach((team, i) => {
     const lead = document.createElement('div');
     lead.className = 'anode anode--lead';
     lead.dataset.id = `lead-${team.id}`;
-    lead.style.gridRow = '3';
+    lead.style.gridRow = '4';
     lead.style.gridColumn = col;
     lead.innerHTML = `<span class="node-abbr">LEAD</span><span class="node-title">${esc(team.name)} Lead</span>`;
     chart.appendChild(lead);
@@ -26,7 +26,7 @@ teams.forEach((team, i) => {
   const card = document.createElement('section');
   card.className = `team-card team-card--${team.color}`;
   card.dataset.id = `team-${team.id}`;
-  card.style.gridRow = '4';
+  card.style.gridRow = '5';
   card.style.gridColumn = col;
   card.innerHTML =
     `<h2 class="team-card-head">${esc(team.name)}<span class="team-count">${team.members.length}</span></h2>` +
@@ -55,16 +55,21 @@ function down(fromId, toId) {
 
 function draw() {
   const paths = [
-    down('top', 'om-1'),
-    down('top', 'om-2'),
+    down('top', 'agm'),
+    down('agm', 'om-1'),
+    down('agm', 'om-2'),
   ];
 
   teams.forEach((team) => {
     if (team.parent === 'top') {
-      // Out of the right side of the top box, across, then down to the team
-      const a = box('top'), b = box(`team-${team.id}`);
-      const y = a.top + (a.bottom - a.top) / 2;
-      paths.push(`M${a.right},${y} H${b.cx} V${b.top - 4}`);
+      // Out of the right side of the GM and the AGM, across, then down to the team.
+      // The two lines land side by side on the team's top edge.
+      const b = box(`team-${team.id}`);
+      [['top', 18], ['agm', -18]].forEach(([from, offset]) => {
+        const a = box(from);
+        const y = a.top + (a.bottom - a.top) / 2;
+        paths.push(`M${a.right},${y} H${b.cx + offset} V${b.top - 4}`);
+      });
     } else {
       paths.push(down(team.parent, `lead-${team.id}`));
       paths.push(down(`lead-${team.id}`, `team-${team.id}`));
