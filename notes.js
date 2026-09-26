@@ -111,6 +111,20 @@ const NOTES = {
       'Project Tracker',
     ],
   },
+  apm: {
+    abbr: 'APM',
+    label: 'Assistant Project Manager',
+    short: 'Supports the Project Manager with day-to-day project work, updates and follow-ups so the PM can focus on clients and delivery.',
+    tasks: [
+      'Project Tracker Update',
+      'Project Order Sheet Update',
+      'Project Deadline Check',
+      'Generate Update Message',
+      'Client Message Pass & Receive',
+      'Follow Up On Developer Tasks',
+      'Support PM In Client Meetings',
+    ],
+  },
   spt: {
     abbr: 'SPDev',
     label: 'Special Dev / Stack Leader',

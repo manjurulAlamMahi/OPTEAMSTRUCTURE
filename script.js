@@ -9,25 +9,25 @@ const ROLES = {
   pc: { type: 'pc', context: 'Final title not decided yet' },
 };
 
-// The 4 teams – every Operation Manager side has this same set
+// The 6 teams – every Operation Manager side has this same set.
+// A count of null means the number is not decided yet (shown as TBD).
 const TEAMS = {
-  a: { stack: 'Laravel', members: { 'UI/UX': 3, Frontend: 4, Flutter: 4, Laravel: 5 } },
-  b: { stack: 'Laravel', members: { 'UI/UX': 3, Frontend: 4, Flutter: 4, Laravel: 5 } },
+  a: { stack: 'Laravel', members: { 'UI/UX': 4, Frontend: 5, Flutter: 5, Laravel: 6 } },
+  b: { stack: 'Laravel', members: { 'UI/UX': 4, Frontend: 5, Flutter: 5, Laravel: 6 } },
   c: { stack: 'Python', members: { 'UI/UX': 3, Frontend: 4, Flutter: 4, Django: 5 } },
-  d: {
-    stack: 'MERN',
-    members: { 'UI/UX': 3, 'MERN + Front': 3, 'MERN + Native': 3, 'MERN + Back': 3, n8n: 4 },
-  },
+  d: { stack: 'MERN', members: { 'UI/UX': 2, 'MERN + Front': 3, 'MERN + Native': 3, 'MERN + Back': 4 } },
+  e: { stack: 'Creative', members: { 'Game Developer': null, 'Interior Designer': null, 'Video Editor': null } },
+  f: { stack: 'AI Specialist', members: { n8n: 6, 'AI Specialist': 4 } },
 };
 
 // The Special / Rapid Team – each side has its own, with this same set of people
 const SPECIAL_MEMBERS = { 'UI/UX': 1, Frontend: 1, Flutter: 1, Laravel: 1, MERN: 1, Django: 1, SQA: 1, n8n: 1 };
 
-// The 3 Project Managers on each side (left to right) and the teams they lead
+// The 3 Project Managers on each side (left to right), each leading 2 teams
 const PM_GROUPS = [
-  { key: 'ac', teams: ['a', 'c'], label: 'Team A & Team C' },
-  { key: 'all', teams: ['a', 'c', 'b', 'd'], label: 'all four teams', optional: true },
-  { key: 'bd', teams: ['b', 'd'], label: 'Team B & Team D' },
+  { key: 'ae', teams: ['a', 'e'], label: 'Team A & Team E' },
+  { key: 'bc', teams: ['b', 'c'], label: 'Team B & Team C' },
+  { key: 'df', teams: ['d', 'f'], label: 'Team D & Team F' },
 ];
 
 const SIDES = [1, 2];
@@ -50,6 +50,10 @@ SIDES.forEach((s) => {
       type: 'pm',
       context: `Project Manager ${pmNumbers[i]} · leads ${g.label}`,
       optional: g.optional,
+    };
+    ROLES[`apm-${s}${g.key}`] = {
+      type: 'apm',
+      context: `Assists Project Manager ${pmNumbers[i]} · ${g.label}`,
     };
   });
 
@@ -92,10 +96,9 @@ SIDES.forEach((s) => {
     const pm = `pm-${s}${g.key}`;
     const optional = !!g.optional;
     EDGES.push({ from: `om-${s}`, to: pm, type: 'tree', optional });
+    EDGES.push({ from: pm, to: `apm-${s}${g.key}`, type: 'side' });
     EDGES.push({ from: `spt-${s}`, to: pm, type: 'dashed', optional });
-    // The "all teams" PM's lines run higher so they don't overlap the others
-    const mid = g.key === 'all' ? 0.3 : 0.6;
-    g.teams.forEach((t) => EDGES.push({ from: pm, to: `team-${s}${t}`, type: 'tree', mid, optional }));
+    g.teams.forEach((t) => EDGES.push({ from: pm, to: `team-${s}${t}`, type: 'tree', mid: 0.6, optional }));
   });
 });
 
@@ -109,7 +112,9 @@ let selectedId = null;
 let hoveredId = null;
 
 function total(members) {
-  return Object.values(members).reduce((a, b) => a + b, 0);
+  const counts = Object.values(members);
+  if (counts.some((n) => n == null)) return 'TBD';
+  return counts.reduce((a, b) => a + b, 0);
 }
 
 // Team boxes: show the member count, and add the member list that
@@ -119,11 +124,12 @@ Object.entries(ROLES).forEach(([id, role]) => {
   const node = chart.querySelector(`[data-id="${id}"]`);
   if (!node) return;
 
-  node.querySelector('.node-meta').textContent = `${total(role.members)} members`;
+  const sum = total(role.members);
+  node.querySelector('.node-meta').textContent = sum === 'TBD' ? 'Size TBD' : `${sum} members`;
   node.setAttribute('aria-expanded', 'false');
 
   const rows = Object.entries(role.members)
-    .map(([skill, count]) => `<span class="roster-row"><span>${skill}</span><b>${count}</b></span>`)
+    .map(([skill, count]) => `<span class="roster-row"><span>${skill}</span><b>${count == null ? 'TBD' : count}</b></span>`)
     .join('');
   node.insertAdjacentHTML(
     'beforeend',
@@ -136,13 +142,33 @@ Object.entries(ROLES).forEach(([id, role]) => {
   );
 });
 
+/* Fit to screen: the whole chart is scaled down so it fits the page width
+   without a horizontal scrollbar. Below MIN_SCALE text gets too small, so
+   on very narrow screens (phones) it stops shrinking and scrolls instead. */
+const MIN_SCALE = 0.5;
+let scale = 1;
+
+function fit() {
+  const wrap = chart.parentElement;
+  const cs = getComputedStyle(wrap);
+  const available = wrap.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  scale = Math.max(MIN_SCALE, Math.min(1, available / chart.offsetWidth));
+  chart.style.transform = scale < 1 ? `scale(${scale})` : '';
+  // A transform doesn't change layout size, so remove the empty space it leaves
+  chart.style.marginBottom = scale < 1 ? `${-(1 - scale) * chart.offsetHeight}px` : '';
+  chart.style.marginRight = scale < 1 ? `${-(1 - scale) * chart.offsetWidth}px` : '';
+}
+
+// Box position inside the chart, in the chart's own (unscaled) coordinates
 function box(id) {
   const el = chart.querySelector(`[data-id="${id}"]`);
   const r = el.getBoundingClientRect();
   const c = chart.getBoundingClientRect();
-  const l = r.left - c.left;
-  const t = r.top - c.top;
-  return { l, t, r: l + r.width, b: t + r.height, w: r.width, h: r.height, cx: l + r.width / 2, cy: t + r.height / 2 };
+  const l = (r.left - c.left) / scale;
+  const t = (r.top - c.top) / scale;
+  const w = r.width / scale;
+  const h = r.height / scale;
+  return { l, t, r: l + w, b: t + h, w, h, cx: l + w / 2, cy: t + h / 2 };
 }
 
 // Sales links: GM, AGM and PC get a short direct line. OMs and PMs are
@@ -200,6 +226,7 @@ function pathFor(edge) {
 }
 
 function draw() {
+  fit();
   let html = `
     <defs>
       <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
@@ -293,8 +320,8 @@ function positionNote() {
   const h = note.offsetHeight;
 
   // Right side if it fits in the window, otherwise left side
-  const fitsRight = nodeRect.right + NOTE_GAP + w <= window.innerWidth - 8;
-  const fitsLeft = nodeRect.left - NOTE_GAP - w >= 8;
+  const fitsRight = nodeRect.right + (NOTE_GAP + w) * scale <= window.innerWidth - 8;
+  const fitsLeft = nodeRect.left - (NOTE_GAP + w) * scale >= 8;
   const onRight = fitsRight || !fitsLeft;
   const left = onRight ? b.r + NOTE_GAP : b.l - NOTE_GAP - w;
 
