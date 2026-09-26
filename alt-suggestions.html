@@ -21,7 +21,7 @@
   <header class="page-header">
     <div>
       <h1>My Suggestion</h1>
-      <p class="hint">How the structure and the teams should look.</p>
+      <p class="hint">Optimise the current members into 6 teams, each under its own manager.</p>
     </div>
     <nav class="top-nav" aria-label="Main">
       <ul>
@@ -33,97 +33,45 @@
     </nav>
   </header>
 
-  <div class="sg-tabs" role="tablist">
-    <button class="sg-tab" role="tab" data-tab="structure">Structure Suggestion</button>
-    <button class="sg-tab" role="tab" data-tab="teams">Team Suggestion</button>
-  </div>
-
-  <!-- ===================== Structure Suggestion ===================== -->
-  <main class="chart-scroll" id="tab-structure" role="tabpanel">
-    <div class="alt-chart sg-chart" id="sg-chart">
-      <svg class="lines" id="sg-lines" aria-hidden="true"></svg>
-
-      <button class="anode anode--top" data-id="gm" style="grid-row: 1; grid-column: 3 / 5">
-        <span class="node-abbr">GM</span>
-        <span class="node-title">General Manager</span>
-      </button>
-
-      <button class="anode anode--top" data-id="agm" style="grid-row: 2; grid-column: 3 / 5">
-        <span class="node-abbr">AGM</span>
-        <span class="node-title">Assistant General Manager</span>
-      </button>
-
-      <button class="anode anode--om" data-id="pc" style="grid-row: 3; grid-column: 3 / 5">
-        <span class="node-abbr">PC</span>
-        <span class="node-title">Project Coordinator</span>
-      </button>
-
-      <button class="anode anode--rapid" data-id="rapid-1" style="grid-row: 4; grid-column: 1">
-        <span class="node-abbr">SPT</span>
-        <span class="node-title">Special / Rapid Team 1</span>
-        <span class="node-sub">Every stack + 2 SQA</span>
-      </button>
-      <button class="anode anode--om" data-id="om-1" style="grid-row: 4; grid-column: 2">
-        <span class="node-abbr">OM</span>
-        <span class="node-title">Operations Manager 1</span>
-      </button>
-      <button class="anode anode--om" data-id="om-2" style="grid-row: 4; grid-column: 5">
-        <span class="node-abbr">OM</span>
-        <span class="node-title">Operations Manager 2</span>
-      </button>
-      <button class="anode anode--rapid" data-id="rapid-2" style="grid-row: 4; grid-column: 6">
-        <span class="node-abbr">SPT</span>
-        <span class="node-title">Special / Rapid Team 2</span>
-        <span class="node-sub">Every stack + 2 SQA</span>
-      </button>
-
-      <button class="anode anode--special" data-id="special" style="grid-row: 4; grid-column: 7">
-        <span class="node-abbr">SPECIAL CASE</span>
-        <span class="node-title">Special Case Team</span>
-        <span class="node-sub">Handled by the GM &amp; AGM</span>
-      </button>
-
-      <!-- Project Managers and teams are added by alt-suggestions.js -->
-    </div>
-  </main>
-
-  <!-- ===================== Team Suggestion ===================== -->
-  <main class="page-body page-body--wide sg" id="tab-teams" role="tabpanel" hidden>
+  <main class="page-body page-body--wide sg">
 
     <section class="sg-intro">
+      <ul class="sg-points">
+        <li><b>3 Laravel teams</b>: 3 UI/UX, 4 Front End, 4 Flutter, 5 Backend (Laravel)</li>
+        <li><b>1 Python team</b>: same shape, with 5 Django backend</li>
+        <li><b>1 full MERN team</b>: React Native instead of Flutter. 2 UI/UX, 3 MERN + Front, 3 MERN + Native, 4 MERN +
+          Backend</li>
+        <li><b>1 AI team</b>: 6 n8n + Front End, 4 AI Specialists</li>
+      </ul>
       <div class="sg-summary" id="sg-summary"></div>
       <div class="sg-hire-total">
-        <h2>Open slots to hire later</h2>
+        <h2>Total hiring needed</h2>
         <ul id="sg-hire-total"></ul>
       </div>
     </section>
 
     <h2 class="sg-title">Teams</h2>
-    <p class="sg-sub">Members are spread so every team has at least 2 people per role where possible. Teams don't need to be complete from day one.</p>
+    <p class="sg-sub">Current members are placed by role. Open slots show who to hire; anyone beyond the slots goes to
+      Extra.</p>
     <div class="sg-teams" id="sg-teams"></div>
 
-    <h2 class="sg-title">Special / Rapid Teams</h2>
-    <p class="sg-sub">One Rapid Team per Operations Manager: one member from every stack plus 2 SQA. Members will be assigned later, from Extra or the teams.</p>
-    <div class="sg-split" id="sg-rapid"></div>
-
-    <h2 class="sg-title sg-title--spaced">Special Case <span class="sg-tag">GM &amp; AGM</span></h2>
-    <p class="sg-sub">Special members handled directly by the GM and AGM.</p>
     <div class="sg-split">
-      <div id="sg-special"></div>
-    </div>
+      <section>
+        <h2 class="sg-title">Special Case <span class="sg-tag">Reports to AGM</span></h2>
+        <p class="sg-sub">Dotify keeps its name and moves from the GM to the AGM.</p>
+        <div id="sg-special"></div>
+      </section>
 
-    <h2 class="sg-title sg-title--spaced">Team plan</h2>
-    <ul class="sg-points">
-      <li><b>3 Laravel teams</b>: 3 UI/UX, 4 Front End, 4 Flutter, 5 Backend (Laravel)</li>
-      <li><b>1 Python team</b>: same shape, with 5 Django backend</li>
-      <li><b>1 full MERN team</b>: React Native instead of Flutter. 2 UI/UX, 3 MERN + Front, 3 MERN + Native, 4 MERN + Backend</li>
-      <li><b>1 AI team</b>: 6 n8n + Front End, 4 AI Specialists</li>
-    </ul>
+      <section>
+        <h2 class="sg-title">Special / Rapid Team</h2>
+        <p class="sg-sub">Handles rapid, high-priority and specialist work.</p>
+        <p class="placeholder">Members to be decided.</p>
+      </section>
+    </div>
 
   </main>
 
   <script src="alt-data.js"></script>
-  <script src="notes.js"></script>
   <script src="alt-suggestions.js"></script>
 </body>
 
